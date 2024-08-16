@@ -17,3 +17,31 @@ function backToTop() {
     document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
 }
 
+// Galeria Lightbox
+
+document.addEventListener('DOMContentLoaded', function () {
+    const lightboxLinks = document.querySelectorAll('.lightbox');
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.querySelector('.lightbox-overlay .close');
+  
+    lightboxLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imgSrc = this.href;
+        lightboxImage.src = imgSrc;
+        lightboxOverlay.style.display = 'flex';
+      });
+    });
+  
+    closeBtn.addEventListener('click', function () {
+      lightboxOverlay.style.display = 'none';
+    });
+  
+    lightboxOverlay.addEventListener('click', function (e) {
+      if (e.target !== lightboxImage) {
+        lightboxOverlay.style.display = 'none';
+      }
+    });
+  });
+  
