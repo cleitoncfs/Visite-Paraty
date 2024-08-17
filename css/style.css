@@ -32,6 +32,22 @@ header a {
   padding: 5px;
 }
 
+/* Estilo do Menu Hambúrguer */
+.menu-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.menu-hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: #000;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
 section {
   padding: 60px 20px;
 }
@@ -230,4 +246,45 @@ footer {
   text-align: center;
   padding: 20px; /* Aumenta o espaço interno do rodapé */
   font-size: 14px;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  header nav a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .menu-hamburger {
+    display: flex;
+  }
+
+  /* Efeito de Transformação no Menu */
+  .menu-hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+
+  .menu-hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+
+  header nav.active {
+    display: flex;
+  }
 }

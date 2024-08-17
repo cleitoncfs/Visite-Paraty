@@ -45,3 +45,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
+  
+  // Menu Hamburger
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuHamburger = document.querySelector('.menu-hamburger');
+    const nav = document.querySelector('header nav');
+  
+    menuHamburger.addEventListener('click', function () {
+      menuHamburger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+  });
+  
